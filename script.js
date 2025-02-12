@@ -861,18 +861,205 @@ caracteristicas.saludar()*/
 
     //json formato de texto ligero para intercambiar datos.
 
-    let personaJson = {
-        nombre: "valentin",
-        edad: 19
+    const usuario1 = {
+        nombre: "francisco",
+        edad: 19,
+        email: "fran.sottile@gmail.com"
     }
-    let usuarioJson = JSON.stringify(personaJson)
+    let usuarioJson = JSON.stringify(usuario1)
     console.log(usuarioJson)
 
-    localStorage.setItem("personaJson", usuarioJson )
+    const guardarUsuario = localStorage.setItem("usuario1", usuarioJson)
 
-    let usuarioRecuperado = localStorage.getItem("personaJson")
+    let recuperarUsuario = JSON.parse(usuarioJson)
+    console.log(recuperarUsuario)
+
+    let usuarioRecuperado = localStorage.getItem("usuario1")
     console.log(usuarioRecuperado)
 
     let usuarioObjeto = JSON.parse(usuarioRecuperado)
-    
     console.log(usuarioObjeto)
+    JSON
+
+    //practica
+    //reservas de canchas, predio de primera
+    let personas = [
+        {nombre: "juan", edad: 18, contraseña: 1234},
+        {nombre: "felipe", edad: 18, contraseña: 3769},
+        {nombre: "kevin", edad: 18, contraseña: 8326},
+        {nombre: "lupin", edad: 18, contraseña: 7399},
+        {nombre: "eduardo", edad: 18, contraseña: 8590},
+        {nombre: "juani", edad: 18, contraseña: 8559}
+    ]
+    
+    //guardar datos de la persona
+    localStorage.setItem("personas", JSON.stringify(personas))
+
+    const usuarioAlmacenado = JSON.parse(localStorage.getItem("personas"))
+
+    console.log(usuarioAlmacenado)
+
+
+    /*let estudiar = "PONETE A ESTUDIAR YA PROGRAMACION"
+
+    if(estudiar === estudiar){
+        alert(estudiar)
+    } else{
+        alert(undefined)
+    }*/
+    
+    //2.1
+    /*let ingreseNumero = prompt("ingrese un numero:")
+    if(ingreseNumero > 0 ){
+        alert("es positivo")
+    } else if(ingreseNumero < 0){
+        alert("es negativo")
+    } else{
+        alert("igual a cero")
+    }*/
+
+    //2.2
+    /*let personaEdad = prompt("ingrese su edad:")
+    if( personaEdad > 18 ){
+        alert("es adolescente/mayor de edad")
+    } else if(personaEdad > 60){
+        alert("es anciana/o")
+    } else{
+        if(personaEdad < 18){
+
+            alert("es menor de edad")
+        }
+    }*/
+
+    //2.3
+    
+    /*for(let i = 0; i < 4; i++){
+        console.log(i)
+    }*/
+
+    //2.4
+    /*let hastaUnNumero = 0
+    while(hastaUnNumero < 4){
+        hastaUnNumero++ === 4
+    }
+    console.log(hastaUnNumero)*/
+
+    //2.5
+    /*talNumero = 0
+    do{
+        talNumero++ === 4
+    }while(talNumero < 4)
+        console.log(talNumero)*/
+
+    //2.6
+    /*for(let i = 0; i < 3; i++){
+        if(i === 3){
+            break;
+        }
+        console.log(i)
+    }*/
+
+    //2.7
+    /*for(let j = 0; j < 10; j++){
+        if(j === 2){
+            continue;
+        }
+        console.log(j)
+    }*/
+
+    /*let mes = prompt("ingrese un numero y le mostraremos el mes adecuado l numero ingresado:")
+
+    switch (mes) {
+        case 1:
+            alert("enero")
+            alert("febrero")
+            alert("marzo")
+            alert("abril")
+            alert("mayo")
+            break;
+        case 6:
+            alert("junio")
+            alert("julio")
+            alert("agosto")
+            alert("septiembre")
+            alert("octubre")
+            alert("noviembre")
+            break;
+        default:
+            alert("Ultimo mes del año, Diciembre")
+            break;
+    }*/
+
+    /*function calculatePower (base, exponente){
+        return base ** exponente
+    }
+    console.log(calculatePower(2, 4))*/
+
+    /*let muchosNumeros = [23, 456, 6854, 21, 12, 4566]
+    
+    let unoPorUno = Prompt("ingrese los numeros:")*/
+
+    //for each
+    /*const numeroDelArray = [1,2,3,4]
+
+    numeroDelArray.forEach(function(numero, indice){
+        console.log(`indie ${indice}: ${numero}`)
+    })*/
+
+    const productos = [
+        {nombre: "Monitor", marca: "Samsumg", precio: 290000},
+        {nombre: "Mouse", marca: "Logitech", precio: 140000},
+        {nombre: "Mouse Pad", marca: "Corsair", precio: 40000},
+        {nombre: "Teclado", marca: "Redragon", precio: 185000}
+    ]
+
+    const catalogo = function(descuento){
+      return productos.precio * descuento / 100
+    }
+    console.log(catalogo(20))
+
+    let nombresDeChicas = ["martina", "julieta", "giuliana", "camila"]
+
+    let edadesDeLasChicas = [19, 25, 22, 27]
+
+    const orden = nombresDeChicas.sort((a,b) => a - b)
+    console.log(orden)
+
+    //ctividad practica
+    const productosDeComputacion = [
+        {nombre: "Monitor", precio: 199000, stock: 7},
+        {nombre: "Mouse", precio: 95000, stock: 34} ,
+        {nombre: "Teclado", precio: 115000, stock: 12} ,
+        {nombre: "Barra de sonido", precio: 205000, stock: 3} ,
+        {nombre: "Auriculares", precio: 175000, stock: 45} ,
+        {nombre: "Auxiliar", precio: 7700, stock: 67} 
+    ]
+    const buscarProducto = productosDeComputacion.find(producto => producto.nombre === "Monitor")
+    
+    console.log(buscarProducto)
+
+    const filtrarProducto = productosDeComputacion.filter(producto => producto.precio < 115000)
+
+    console.log(filtrarProducto)
+
+    const descuentoPorducto = productosDeComputacion.map(producto => producto.precio * 50 / 100)
+
+    console.log(descuentoPorducto)
+
+//DOM y EVENTOS
+let boton = document.getElementById("cambiar")
+
+function cambiar(){
+
+    let saludo = document.getElementById("saludo")
+
+    saludo.innerHTML("hola mundo javascript")
+}
+boton.addEventListener("click", () => cambiar())
+
+
+
+
+
+    
+    

@@ -18,7 +18,7 @@ let diaComplejo = [
 //reservar una cancha y verificar si un usuario es valido
 
 let condicion = true
-let intentos = 3
+
 
 const reservar = function (){
     do{
