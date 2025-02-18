@@ -6,14 +6,12 @@ const usuarios = [
     {nombreYApellido: "angel patyn" }
 ]
 
-//funcion constructora
+//funcion constructora, agregar persona al array de objetos
 
 function persona (nombreYApellido){
     this.nombreYApellido = nombreYApellido
 }
 usuarios.push(new persona("santino murillo"))
-
-console.log(usuarios)
 
 let diaComplejo = [
     {dia: "viernes", complejo: "el clasico"},
@@ -34,10 +32,11 @@ const guardarDatos = JSON.parse(localStorage.getItem("usuarios"))
 
 let condicion = true
 
+
 function reservar (){
 
     //registrarse en DePrimera
-    const nombreIngresado = document.getElementById("nombre").value.trim()
+    const nombreIngresado = document.getElementById("nombre").value
 
     if(nombreIngresado === ""){
         alert("Por favor ingrese su nombre")
@@ -58,6 +57,20 @@ function reservar (){
     }
     //reservar dias en DePrimera
 
+    //no funciona de ninguna manera, intente millones de veces profes, lo seguire viendo y tratando de solucionar a este codigo
+
+    //algo hecho tengo
     
+    document.addEventListener("DOMContentLoaded", function() {
+        
+        let botonesFinde = document.querySelectorAll(".botonFinde");
+    
+        
+        botonesFinde.forEach(boton => {
+            boton.addEventListener("click", () => {
+                console.log("Botón del fin de semana clickeado: ");
+            });
+        });
+    });
 }
 reservar()
