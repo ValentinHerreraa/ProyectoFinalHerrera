@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido al sitio de reservas de DePrimera</h1>
+
+        <input type="text" placeholder="Ingresa tu nombre" id ="nombre">
+
+        <button onclick="reservar()">Registrarme</button>
+
+        
+
+        <p>Cuando se reserva te va a tirar los horarios los cuales estan disponibles en cada complejo</p>
+
+        <p>habra botones para que reserven los dias disponibles en cada predio.</p>
+    </header>
+    <main>
+        <section class="reservas">
+            <div class="reserva">
+                <h1>El clasico</h1>
+
+                <img src="./img/futbol1.png" alt="" class="agrandar">
+
+                <button id="botonFinde" data-dia="Viernes">Viernes</button>
+            </div>
+            <div class="reserva">
+                <h1>El rincon</h1>
+
+                <img src="./img/futbol 2.png" alt="">
+
+                <button id="botonFinde" data-dia="Sabado">Sabado</button>
+            </div>
+            <div class="reserva">
+                <h1>Futbol para todos</h1>
+
+                <img src="./img/futbol 3.png" alt="">
+
+                <button onclick="reservar()" id="boton" data-dia="Jueves">Jueves</button>
+            </div>
+            <div class="reserva">
+                <h1>Futbolito</h1>
+
+                <img src="./img/futbol 4.png" alt="" class="agrandar">
+
+                <button onclick="reservar()" id="boton" data-dia="Martes">Martes</button>
+            </div>
+            <div class="reserva">
+                <h1>Todo canchas</h1>
+
+                <img src="./img/futbol 5.png" alt="">
+
+                <button onclick="reservar()" id="boton" data-dia="Miercoles">Miercoles</button>
+            </div>
+            <div class="reserva">
+                <h1>Doble cinco</h1>
+
+                <img src="./img/futbol 6.png" alt="">
+                
+                <button onclick="reservar()" id="boton" data-dia="Lunes">Lunes</button>
+            </div>
+        </section>
+    </main>
+    
+    <script src = "entrega.js" defer></script>
+</body>
+</html>

@@ -1047,15 +1047,12 @@ caracteristicas.saludar()*/
     console.log(descuentoPorducto)
 
 //DOM y EVENTOS
-let boton = document.getElementById("cambiar")
 
-function cambiar(){
+const buenas = document.getElementById("saludo")
+buenas.addEventListener("click", function(){
+    alert(buenas)
+})
 
-    let saludo = document.getElementById("saludo")
-
-    saludo.innerHTML("hola mundo javascript")
-}
-boton.addEventListener("click", () => cambiar())
 
 
 

@@ -1,0 +1,67 @@
+header{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+header h1{
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 35px;
+}
+header p{
+    font-size: 18px;
+    font-family: monospace;
+    width: 950px;
+}
+header button{
+    margin-top: 10px ;
+    width: 177px;
+}
+.reservas{
+    display: grid;
+    grid-template-columns: 400px 400px 400px;
+    grid-template-rows: 420px;
+    justify-content: center;
+    row-gap: 20px;
+    column-gap: 20px;
+    padding: 10px;
+    
+}
+.reserva{
+    overflow: hidden;
+    transition: 1s ease;
+}
+.reserva:hover{
+    transform: scale(1.05);
+    box-shadow: 1px 1px 5px 1px rgb(160, 160, 160);
+}
+.reserva h1{
+    margin: 20px;
+    font-size: 12px;
+    font-family: monospace;
+    background-color: green;
+    width: 100px;
+    border-radius: 10px;
+    padding: 7px;
+    color: white;
+}
+.reserva p{
+    margin: 20px;
+    font-size: 15px;
+    text-align: start;
+    font-family: monospace;
+}
+.reserva img{
+    width: 370px;
+    padding: 15px;
+    border-radius: 35px;
+
+}
+.reserva button{
+    margin-left: 20px;
+}
+.agrandar{
+    height: 245px;
+}
