@@ -18,11 +18,16 @@ header p{
 header button{
     margin-top: 10px ;
     width: 177px;
+    border-radius: 10px;
+    border: white;
+    background-color: green;
+    padding: 7px;
+    color: white;
 }
 .reservas{
     display: grid;
     grid-template-columns: 400px 400px 400px;
-    grid-template-rows: 420px;
+    grid-template-rows: 450px;
     justify-content: center;
     row-gap: 20px;
     column-gap: 20px;
@@ -59,9 +64,11 @@ header button{
     border-radius: 35px;
 
 }
-.reserva button{
-    margin-left: 20px;
-}
 .agrandar{
     height: 245px;
+}
+.alinear{
+    display: flex;
+    align-items: center;
+
 }

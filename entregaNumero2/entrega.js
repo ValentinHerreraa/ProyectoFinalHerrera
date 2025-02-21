@@ -32,45 +32,33 @@ const guardarDatos = JSON.parse(localStorage.getItem("usuarios"))
 
 let condicion = true
 
+let nombreIngresado = "";
 
 function reservar (){
+    nombreIngresado = document.getElementById("nombre").value.trim();
 
-    //registrarse en DePrimera
-    const nombreIngresado = document.getElementById("nombre").value
-
-    if(nombreIngresado === ""){
-        alert("Por favor ingrese su nombre")
+    if (nombreIngresado === ""){
+        alert("Por favor, Ingrese su nombre")
         return;
     }
 
-    let encontrado = false;
-    for(let i = 0; i < usuarios.length; i++){
-        if(usuarios[i].nombreYApellido.toLowerCase() === nombreIngresado){
-            encontrado = true;
-            break;
-        }
-    }
-    if(encontrado){
+    let encontrado = usuarios.some(usuario => usuario.nombreYApellido.toLowerCase() === nombreIngresado.toLowerCase());
+
+    if (encontrado){
         alert(`Bienvenido a DePrimera ${nombreIngresado}.`)
     } else{
-        alert("Nombre no registrado en DePrimera")
+        alert("Disculpame, No encontramos tu nombre en nuestros registros.")
     }
-    //reservar dias en DePrimera
-
-    //no funciona de ninguna manera, intente millones de veces profes, lo seguire viendo y tratando de solucionar a este codigo
-
-    //algo hecho tengo
-    
-    document.addEventListener("DOMContentLoaded", function() {
-        
-        let botonesFinde = document.querySelectorAll(".botonFinde");
-    
-        
-        botonesFinde.forEach(boton => {
-            boton.addEventListener("click", () => {
-                console.log("Botón del fin de semana clickeado: ");
-            });
-        });
-    });
 }
+    document.addEventListener("click", function(event){
+        if (event.target.classList.contains("botonFinde") || event.target.classList.contains("botonSemana")){
+            if(nombreIngresado === ""){
+                alert("Primero debes registrarte antes de hacer una reserva.")
+                return;
+            }
+
+            let dia = event.target.textContent;
+            alert(`Perfecto ${nombreIngresado} reservaste el dia ${dia}, Gracias por confiar en DePrimera`)
+        }
+    });
 reservar()
