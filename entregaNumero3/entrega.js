@@ -21,10 +21,6 @@ let diaComplejo = [
     {dia: "miercoles", complejo: "todo canchas"},
     {dia: "lunes", complejo: "doble cinco"}
 ]
-//crear nuevo nodo
-
-
-
 //guardar datos usuarios.
 localStorage.setItem("usuarios", JSON.stringify(usuarios))
 

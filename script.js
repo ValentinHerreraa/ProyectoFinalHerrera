@@ -1047,7 +1047,7 @@ caracteristicas.saludar()*/
     console.log(descuentoPorducto)
 
 //DOM y EVENTOS
-let boton = document.getElementById("cambiar")
+/*let boton = document.getElementById("cambiar")
 
 function cambiar(){
 
@@ -1055,11 +1055,267 @@ function cambiar(){
 
     saludo.innerHTML("hola mundo javascript")
 }
-boton.addEventListener("click", () => cambiar())
+boton.addEventListener("click", () => cambiar())*/
 
+//manejo del asincronismo y errores
+//fetch, then, catch
+/*const url = ("https://jsonplaceholder.typicode.com/posts");
+    fetch(url)
+        .then(Response => Response.json)
+        .then(data => console.log(data))
 
+    function first(){
+        console.log("primera funcion")
+        second()
+        console.log("primera funcion - parte 2")
+    }
 
-
-
+    function second (){
+        console.log("segunda funcion")
+    }
     
+    first()
+
+    /*console.log("inicio")
+    setInterval(() => {
+        console.log("esto es asincronico")
+    }, 3000) //el 3000 refiere a los segundos que tarda en ejecutarse, en este caso serias 3 segundos
+
+    console.log("fin")
+
+    console.log("inicio")
+    setTimeout(() => {
+        console.log("esto no es asincronico")
+    }, 3000) //el 3000 refiere a los segundos que tarda en ejecutarse, en este caso serias 3 segundos
+
+    console.log("fin")
+
+    function hacerTarea (tarea, callback){
+        callback()
+        console.log(`haciendo la tarea: ${tarea}`)
+    }
     
+    function terminarTarea (){
+        console.log("tarea terminada")
+    }
+
+    hacerTarea("javascript", terminarTarea)
+
+    async function getData (){
+        try{
+            const response = await fetch(url)
+            const data = await response.json()
+            console.log("datos recibidos: ",  data)
+        } catch(error){
+            console.error("verificar errores: ", error)
+        }
+    }
+    getData()
+
+    //misma sintaxis con clearinterval
+    console.log("inicio")
+    let temporizador = setTimeout(() => {
+        console.log("se ejecuta luego de dos segundos.")
+    }, 2000);
+
+    clearTimeout(temporizador)
+
+    const practica = (num1, num2, callback) => {
+
+        let resultado = num1 + num2
+        callback()
+        console.log(resultado)
+    }
+    function valores (){
+        console.log("este resultado da: ")
+    }
+    practica(2, 2, valores)
+
+    //promesas explicadas por javi...
+    const promesa = new Promise((resolve, reject) => {
+        //si la operacion es verdadera, devuelve resolve
+        //si la operacion falla, llamo a reject con un error
+    })
+    console.log(promesa)*/
+
+
+    //
+    const url = "https://jsonplaceholder.typicode.com/posts"
+
+    /*fetch(url)
+    .then (Response => Response.json())
+    .then (data => {
+        console.log(data)
+    })
+
+    .catch(error => {
+
+        console.log("Se muestra el error: ", error)
+    })*/
+
+    /*async function getData(){
+        try{
+            const response = await fetch (url)
+            const data = await response.json()
+            console.log("mostrar datos", data)
+        }catch (error){
+            console.error("verificar error: ", error)
+        }
+    }
+    getData()*/
+
+    //ejercicio uno: promesa basica
+    function promesaBasica (){
+        return new Promise ((resolve, reject) => {
+            setTimeout(() => {
+                resolve("Promesa Resuelta")
+            }, 2000);
+        })
+    }
+    promesaBasica()
+        .then((mensaje) => {
+            console.log("mostrar mensaje: ", mensaje)
+        })
+
+        //ejercicio 2: async/await con settimeout
+        async function mensaje (){
+            try{
+                await new Promise ((resolve) => setTimeout(resolve, 3000));
+                console.log("espera completada")
+            } catch (error){
+                console.error("Mostrar errores: ", error)
+            }
+        }
+        mensaje()
+
+        //ejercicio 3: setinterval con promesas
+        /*function intervalo (){
+            return new Promise((resolve) => {
+                let contador = 0
+                const idIntervalo = setInterval(() => {
+                    console.log("tick")
+                    contador++
+                    if(contador === 5){
+                        clearInterval(idIntervalo)
+                        resolve("Intervalo detenido despues de 5 ticks")
+                    }
+                }, 1000);
+            })
+        }
+
+        intervalo()
+        .then (mensaje => console.log(mensaje))
+        .catch(error => console.error(error))*/
+
+        //ejercicio 4: manejo de errores con async/await
+        async function numeroAleatorio() {
+            try{
+                let numero = 0.5
+                if(numero < 0.2){
+                    setTimeout(() => {
+                        console.log("Se resuelve con Exito.")
+                    }, 2000);
+                } else{
+                    
+                }
+            }catch(error){
+                console.log("Mostrar error: ", error)
+            }
+
+        }
+        numeroAleatorio()
+
+        function EjercicioSeis() {
+            return new Promise ((resolve) => {
+                resolve (10)
+            })
+        }
+        function encadenar (numero){
+            return new Promise ((resolve) => {
+                const numeroFinal = numero * 2
+                resolve(numeroFinal)
+            })
+        }
+
+        EjercicioSeis()
+        .then((resultado) => encadenar(resultado))
+        .then((resultadoFinal) => console.log(resultadoFinal))
+        .catch((error) => {
+            console.log("Mostrar errores", error)
+        })
+
+        function promesa1 (){
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve("Un Segundo")
+                },1000);
+            })
+        }
+
+        function promesa2 (){
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve("Dos Segundos")
+                }, 2000);
+            })
+        }
+
+        Promise.all([promesa1(), promesa2()])
+        .then((resultado) => console.log("Resultados: ",resultado))
+        .catch((error) => {
+            console.error("Error: ", error)
+        })
+
+        for(let i = 0; i < 5; i++){
+            setTimeout(() => {
+                return console.log(i)
+            }, 1000)
+        }
+        
+        const direccion = "https://jsonplaceholder.typicode.com/posts"
+
+        /*async function enlace (){
+            try{
+                const url = await fetch(direccion)
+                await new Promise ((resolve) => {
+                    return Response.json()
+                })
+            }catch(error){
+                console.error("Error: ", error)
+            }
+        }
+         enlace()*/
+
+         document.getElementById("click").addEventListener("click", () => {
+            Swal.fire({
+                title:"Alerta Basica",
+                text:"No reversible",
+                icon:"warning",
+                showCancelButton: true,
+                confirmButtonText: "confirmar",
+                cancelButtonText: "cancelar"
+
+            });
+         })
+        
+
+        //ejercicios asincronicos 
+        //callback basico
+        
+        async function sumarAsync (a, b){
+            return await new Promise ((resolve) => {
+                 setTimeout(() => {
+                    resolve(resultado = a + b)
+                }, 1000);
+            })
+        }
+        console.log(sumarAsync(2, 2))
+
+        .then((resultado) => {
+            console.log("el resultado es: ", resultado)
+        })
+        .catch((error) => {
+
+            console.log(error)
+        })
+        
