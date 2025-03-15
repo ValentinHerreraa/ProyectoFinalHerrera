@@ -31,30 +31,94 @@ let condicion = true
 let nombreIngresado = "";
 
 function reservar (){
+    console.log("La función reservar() se ejecutó")
     nombreIngresado = document.getElementById("nombre").value.trim();
 
     if (nombreIngresado === ""){
-        alert("Por favor, Ingrese su nombre")
+        Toastify({
+            text:"Por favor, ingrese su nombre.",
+            duration: 3000,
+            gravity:"top",
+            position: "center",
+            backgroundColor: "green"
+        }).showToast();
         return;
     }
 
     let encontrado = usuarios.some(usuario => usuario.nombreYApellido.toLowerCase() === nombreIngresado.toLowerCase());
 
     if (encontrado){
-        alert(`Bienvenido a DePrimera ${nombreIngresado}.`)
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+          Toast.fire({
+            icon: "success",
+            title: "Bienvenido " + nombreIngresado
+          });
+
     } else{
-        alert("Disculpame, No encontramos tu nombre en nuestros registros.")
+        Swal.fire({
+            title: "¡Error!",
+            text: "No encontramos tu nombre en nuestros registros.",
+            icon: "error",
+          });
     }
 }
-    document.addEventListener("click", function(event){
-        if (event.target.classList.contains("botonFinde") || event.target.classList.contains("botonSemana")){
-            if(nombreIngresado === ""){
-                alert("Primero debes registrarte antes de hacer una reserva.")
-                return;
-            }
+async function confirmacion(dia) {
+    console.log("La función confirmacion() se ejecutó");
 
-            let dia = event.target.textContent;
-            alert(`Perfecto ${nombreIngresado} reservaste el dia ${dia}, Gracias por confiar en DePrimera`)
+    try {
+        let contador = 0;
+
+        let intervalo = setInterval(() => {
+            contador++;
+            if (contador === 4) {
+                
+            }
+        }, 500);
+
+        
+        setTimeout(() => {
+            clearInterval(intervalo);
+            Swal.fire({
+                title: "Hiciste tu reserva",
+                text:"Perfecto " + nombreIngresado + " reservaste el dia " + dia + " ,Gracias por confiar en DePrimera.",
+                icon: "success"
+            });
+
+        }, 2000);
+
+    } catch (error) {
+        console.error("Ocurrió un error:", error);
+    }
+}
+
+document.addEventListener("click", function (event) {
+    if (event.target.classList.contains("botonFinde") || event.target.classList.contains("botonSemana")) {
+        if (nombreIngresado === "") {
+            new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve(Swal.fire({
+                        title: "Reserva",
+                        text: "Primero debes registrarte antes de hacer una reserva",
+                        icon: "warning"
+                    }));
+                }, 500);
+            });
+            return;
         }
-    });
+
+        let dia = event.target.textContent;
+
+        confirmacion(dia);
+    }
+});
 reservar()
