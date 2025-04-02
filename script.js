@@ -1284,9 +1284,9 @@ boton.addEventListener("click", () => cambiar())*/
                 console.error("Error: ", error)
             }
         }
-         enlace()*/
+        enlace()*/
 
-         document.getElementById("click").addEventListener("click", () => {
+        document.getElementById("click").addEventListener("click", () => {
             Swal.fire({
                 title:"Alerta Basica",
                 text:"No reversible",
@@ -1296,7 +1296,7 @@ boton.addEventListener("click", () => cambiar())*/
                 cancelButtonText: "cancelar"
 
             });
-         })
+        })
         
 
         //ejercicios asincronicos 
@@ -1304,7 +1304,7 @@ boton.addEventListener("click", () => cambiar())*/
         
         async function sumarAsync (a, b){
             return await new Promise ((resolve) => {
-                 setTimeout(() => {
+                setTimeout(() => {
                     resolve(resultado = a + b)
                 }, 1000);
             })
@@ -1318,4 +1318,3 @@ boton.addEventListener("click", () => cambiar())*/
 
             console.log(error)
         })
-        
